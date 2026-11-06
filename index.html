@@ -40,7 +40,7 @@ details[open] summary::after{content:"\2212"}
 .links{display:flex;flex-direction:column;gap:10px;margin-top:8px}
 .links a{display:block;position:relative;background:var(--soft);border:1px solid transparent;color:var(--ink);text-decoration:none;font-weight:700;padding:13px 44px 13px 16px;border-radius:14px;transition:border-color .15s,transform .15s}
 .links a::after{content:"\2197";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:1.2rem}
-.links a[href^="password"]::after{content:"\2192"}
+.links a[href^="password"]::after,.links a[href^="spot"]::after{content:"\2192"}
 .links a:hover{border-color:var(--accent);transform:translateX(2px)}
 .links a small{display:block;font-weight:400;color:var(--mute);font-size:.9rem}
 .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
@@ -133,6 +133,7 @@ footer{color:var(--mute);font-size:.88rem;margin-top:44px;padding-top:16px;borde
 <h2 id="start">Not sure yet? Start here</h2>
 <p class="sec-note">Try one thing for 30 minutes. You’ll learn more about what you like than from thinking about it.</p>
 <div class="links">
+<a href="spot-the-scam.html">Play a game: Spot the Scam<small>Real or fake? 8 messages, 3 minutes.</small></a>
 <a href="password-checker.html">Test a password: Password Checker<small>See how long a made-up password would take to crack. Takes 2 minutes.</small></a>
 <a href="https://scratch.mit.edu" target="_blank" rel="noopener noreferrer">Build something: Scratch<small>The easiest place to begin.</small></a>
 <a href="https://tryhackme.com" target="_blank" rel="noopener noreferrer">Break something (legally): TryHackMe<small>Safe puzzles that teach how hackers think.</small></a>

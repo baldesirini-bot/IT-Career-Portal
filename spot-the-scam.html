@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spot the Scam</title>
+<style>
+:root{--bg:#f4f5fb;--ink:#0f1530;--mute:#5a6285;--card:#fff;--line:#e2e5f2;--accent:#5b3df5;--accent2:#0a86a8;--soft:#eeeafe;--bad:#c62828;--badbg:#fdeaea;--good:#1b7f3b;--goodbg:#e4f5ea;--shadow:0 6px 24px rgba(30,30,90,.08);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0f1f;--ink:#eef0ff;--mute:#a1a9cc;--card:#141a33;--line:#263057;--accent:#8b7bff;--accent2:#3fd8f0;--soft:#1d2548;--bad:#ff8a8a;--badbg:#3a1c26;--good:#5fd68a;--goodbg:#14301f;--shadow:0 6px 24px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#0b0f1f;--ink:#eef0ff;--mute:#a1a9cc;--card:#141a33;--line:#263057;--accent:#8b7bff;--accent2:#3fd8f0;--soft:#1d2548;--bad:#ff8a8a;--badbg:#3a1c26;--good:#5fd68a;--goodbg:#14301f;--shadow:0 6px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+main{max-width:640px;margin:0 auto;padding:18px 16px 48px}
+a{color:var(--accent);font-weight:700}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1{font-size:clamp(1.9rem,8vw,3rem);line-height:1.08;margin:6px 0 8px;letter-spacing:-.03em;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mute);font-size:1.1rem;margin:0 0 18px}
+.btn{font:inherit;font-weight:800;font-size:1.1rem;padding:14px 22px;border-radius:16px;border:0;cursor:pointer;color:#fff;background:linear-gradient(135deg,#5b3df5,#0a86a8)}
+.btn.alt{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.prog{display:flex;justify-content:space-between;color:var(--mute);font-weight:700;margin-bottom:8px}
+.track{height:8px;background:var(--line);border-radius:4px;margin-bottom:16px;overflow:hidden}
+.track i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .3s}
+.mail{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.mail .hd{background:var(--soft);padding:12px 16px;font-size:.92rem;color:var(--mute);overflow-wrap:anywhere}
+.mail .hd b{color:var(--ink)}
+.mail .bd{padding:16px;font-size:1.05rem}
+.mail .sub2{font-weight:800;font-size:1.15rem;margin:0 0 8px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.choices .btn{padding:18px 10px;font-size:1.2rem}
+.choices .real{background:var(--good);color:#fff}
+.choices .fake{background:#c62828}
+.fb{margin-top:16px;border-radius:18px;padding:16px 18px}
+.fb.ok{background:var(--goodbg);border:2px solid var(--good)}
+.fb.no{background:var(--badbg);border:2px solid var(--bad)}
+.fb h2{margin:0 0 6px;font-size:1.3rem}
+.fb ul{margin:6px 0 0;padding-left:1.2rem}
+.score{font-size:clamp(3rem,16vw,5rem);font-weight:800;line-height:1}
+.flags li{margin:6px 0}
+.hide{display:none!important}
+#print{display:none}
+@media print{
+body{background:#fff;color:#000}
+#app{display:none!important}
+#print{display:block}
+#print h1{background:none;color:#000;-webkit-text-fill-color:#000;font-size:1.6rem}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc{border:2px solid #000;border-radius:10px;padding:10px 12px;break-inside:avoid;font-size:11pt}
+.pc .n{font-weight:800}
+.pc .f{font-size:9.5pt;color:#333;overflow-wrap:anywhere}
+.key{break-before:page}
+.key td,.key th{border:1px solid #000;padding:4px 8px;text-align:left;font-size:10pt}
+.key table{border-collapse:collapse;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app">
+<div id="start">
+<h1>Spot the Scam</h1>
+<p class="sub">8 messages. Real or fake? Be a scam detective and win a prize.</p>
+<div class="row"><button class="btn" id="go" type="button">Start</button><button class="btn alt" id="pr" type="button">Print cue cards</button></div>
+<p class="sub" style="margin-top:22px;font-size:.95rem"><a href="index.html">&larr; Back to the IT portal</a></p>
+</div>
+<div id="play" class="hide">
+<div class="prog"><span id="pn"></span><span id="ps"></span></div>
+<div class="track"><i id="pb"></i></div>
+<div class="mail" id="mail"></div>
+<div class="choices" id="ch"><button class="btn real" type="button" data-a="real">Real</button><button class="btn fake" type="button" data-a="fake">Fake</button></div>
+<div class="fb hide" id="fb" role="status" aria-live="polite"></div>
+<div class="row hide" id="nx"><button class="btn" id="next" type="button">Next</button></div>
+</div>
+<div id="end" class="hide">
+<h1>Detective report</h1>
+<p class="score" id="sc"></p>
+<p class="sub" id="msg"></p>
+<div class="fb ok flags"><h2>The 4 red flags</h2><ul><li><b>Urgency:</b> “Act now or lose it.”</li><li><b>Unknown sender:</b> check the address, not just the name.</li><li><b>Asks for money, codes or passwords.</b></li><li><b>A link you didn’t ask for.</b> Open the app or site yourself instead.</li></ul></div>
+<div class="row"><button class="btn" id="again" type="button">Play again</button><a class="btn alt" href="index.html" style="text-decoration:none">IT portal</a></div>
+</div>
+</main>
+<section id="print"></section>
+<script>
+var Q=[
+{k:"email",from:"security@streamflix-support.example",subj:"Your account will be deleted in 24 hours",body:"Dear customer, we could not process your payment. Click here to update your details now or lose your account.",fake:1,why:["Urgent threat to scare you into acting","Generic greeting: “Dear customer”","The sender address doesn’t match the company"]},
+{k:"email",from:"no-reply@school-portal.example",subj:"Timetable change for Friday",body:"Hi Thandi, your Friday timetable has been updated. Log in to the school portal as you normally do to view it.",fake:0,why:["Uses your name","No link to click","Tells you to log in the normal way yourself"]},
+{k:"email",from:"prizes@giga-wins.example",subj:"YOU WON a new phone!!!",body:"Congratulations! Claim your free phone. Just pay R50 delivery and enter your bank card number.",fake:1,why:["You can’t win a contest you never entered","Real prizes don’t ask for your card details","Asks for money up front"]},
+{k:"email",from:"principal@yourschool-admin.example",subj:"Quick favour",body:"I’m in a meeting and can’t talk. Buy 5 gift cards and send me the codes. Reply fast.",fake:1,why:["Pretends to be someone in authority","Rush and secrecy","Gift card codes are a favourite scam payment"]},
+{k:"email",from:"help@gamestore.example",subj:"Your receipt",body:"Thanks for your purchase of Game Pass, R149. If you didn’t make this purchase, open the app and check your account.",fake:0,why:["No link to click","Tells you to open the app yourself","Still check inside the app if you’re unsure"]},
+{k:"text",from:"SMS from +27 00 000 0000",subj:"Parcel notice",body:"Your parcel is held at customs. Pay R30 at http://parcel-fee.example to release it.",fake:1,why:["Small payment, unknown link","You may not be expecting any parcel","Don’t tap links in unexpected texts"]},
+{k:"email",from:"security@gamestore-help.example",subj:"Someone tried to log in to your account",body:"Click this link and enter your password right now to stop them. If you do not, your account will be locked.",fake:1,why:["You never asked for this","Asks for your password through a link","Scary and urgent on purpose"]},
+{k:"email",from:"library@your-library.example",subj:"Book due on Monday",body:"Hi Sipho, your library book is due back on Monday. You can return it at the library desk. Nothing to click or pay.",fake:0,why:["From a place you actually use","No link, no money, no password","Tells you to do it in person"]}
+];
+var $=function(i){return document.getElementById(i)};
+var order,idx,score,locked;
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function show(id){["start","play","end"].forEach(function(x){$(x).classList.toggle("hide",x!==id)})}
+function load(){
+var q=order[idx];locked=false;
+$("pn").textContent="Message "+(idx+1)+" of "+order.length;$("ps").textContent="Score: "+score;
+$("pb").style.width=(idx/order.length*100)+"%";
+var m=$("mail");m.innerHTML="";
+var h=document.createElement("div");h.className="hd";
+var b1=document.createElement("b");b1.textContent=q.k==="text"?"Text message":"From: ";h.appendChild(b1);
+h.appendChild(document.createTextNode(q.k==="text"?" "+q.from:q.from));m.appendChild(h);
+var d=document.createElement("div");d.className="bd";
+var s=document.createElement("p");s.className="sub2";s.textContent=q.subj;
+var p=document.createElement("p");p.textContent=q.body;p.style.margin="0";
+d.appendChild(s);d.appendChild(p);m.appendChild(d);
+$("ch").classList.remove("hide");$("fb").classList.add("hide");$("nx").classList.add("hide");
+$("next").textContent=idx===order.length-1?"See results":"Next"}
+function answer(a){
+if(locked)return;locked=true;
+var q=order[idx],right=(a==="fake")===!!q.fake;
+if(right)score++;
+$("ps").textContent="Score: "+score;
+var f=$("fb");f.className="fb "+(right?"ok":"no");f.innerHTML="";
+var h=document.createElement("h2");h.textContent=(right?"Correct. ":"Not quite. ")+"This one is "+(q.fake?"FAKE":"REAL")+".";
+var u=document.createElement("ul");q.why.forEach(function(w){var li=document.createElement("li");li.textContent=w;u.appendChild(li)});
+f.appendChild(h);f.appendChild(u);
+$("ch").classList.add("hide");$("nx").classList.remove("hide");$("next").focus()}
+function finish(){
+$("pb").style.width="100%";show("end");
+$("sc").textContent=score+" / "+order.length;
+var n=order.length;
+$("msg").textContent=score>=n-2?"Scam detective! Show this screen at the IT table to get your sticker.":score>=n/2?"Good start. Check the four red flags and try again.":"Scammers are good at this. Read the red flags and play again."}
+function start(){order=shuffle(Q);idx=0;score=0;show("play");load()}
+$("go").onclick=start;$("again").onclick=start;
+$("next").onclick=function(){if(idx<order.length-1){idx++;load()}else finish()};
+$("ch").addEventListener("click",function(e){var a=e.target.getAttribute("data-a");if(a)answer(a)});
+$("pr").onclick=function(){
+var pr=$("print");pr.innerHTML="";
+var h=document.createElement("h1");h.textContent="Spot the Scam: cue cards";pr.appendChild(h);
+var g=document.createElement("div");g.className="pgrid";
+Q.forEach(function(q,i){var c=document.createElement("div");c.className="pc";
+var n=document.createElement("div");n.className="n";n.textContent="Card "+(i+1)+" ("+(q.k==="text"?"text message":"email")+")";
+var f=document.createElement("div");f.className="f";f.textContent=(q.k==="text"?"":"From: ")+q.from;
+var s=document.createElement("div");s.className="n";s.textContent=q.subj;
+var b=document.createElement("div");b.textContent=q.body;
+c.appendChild(n);c.appendChild(f);c.appendChild(s);c.appendChild(b);g.appendChild(c)});
+pr.appendChild(g);
+var k=document.createElement("div");k.className="key";
+var kh=document.createElement("h1");kh.textContent="Answer key (for the presenter)";k.appendChild(kh);
+var t=document.createElement("table");
+var hr=document.createElement("tr");["Card","Answer","Why"].forEach(function(x){var th=document.createElement("th");th.textContent=x;hr.appendChild(th)});t.appendChild(hr);
+Q.forEach(function(q,i){var r=document.createElement("tr");
+[String(i+1),q.fake?"FAKE":"REAL",q.why.join("; ")].forEach(function(x){var td=document.createElement("td");td.textContent=x;r.appendChild(td)});t.appendChild(r)});
+k.appendChild(t);pr.appendChild(k);
+window.print()};
+</script>
+</body>
+</html>
