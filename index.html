@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Start Your IT Journey</title>
+<style>
+:root{--bg:#f6f4ef;--ink:#16202e;--mute:#566174;--card:#fff;--line:#d9d5ca;--accent:#1b4fd8;--on:#fff;--hi:#ffe9a8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161f;--ink:#eef1f6;--mute:#9aa6b8;--card:#18212d;--line:#2b3747;--accent:#7ea2ff;--on:#0b1220;--hi:#3a3216}}
+:root[data-theme="dark"]{--bg:#10161f;--ink:#eef1f6;--mute:#9aa6b8;--card:#18212d;--line:#2b3747;--accent:#7ea2ff;--on:#0b1220;--hi:#3a3216}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;line-height:1.55}
+main{max-width:760px;margin:0 auto;padding:28px 18px 56px}
+h1{font-size:clamp(2rem,8vw,3.2rem);line-height:1.08;margin:0 0 10px}
+h1 span{background:var(--hi);padding:0 6px;border-radius:6px}
+h2{font-size:1.5rem;margin:40px 0 6px;line-height:1.2}
+.lead{font-size:1.15rem;color:var(--mute);margin:0 0 20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.chips a{background:var(--accent);color:var(--on);text-decoration:none;font-weight:700;padding:10px 16px;border-radius:999px}
+.chips a:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.sec-note{color:var(--mute);margin:0 0 16px}
+details{background:var(--card);border:2px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}
+details[open]{border-color:var(--accent)}
+summary{cursor:pointer;padding:16px;font-weight:800;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary small{display:block;font-weight:400;color:var(--mute);font-size:.92rem}
+summary::after{content:"+";font-size:1.6rem;color:var(--accent);flex:none}
+details[open] summary::after{content:"\2212"}
+.body{padding:0 16px 16px}
+.body h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:14px 0 4px}
+.body p{margin:0}
+.links{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.links a{display:block;border:2px solid var(--accent);color:var(--accent);text-decoration:none;font-weight:700;padding:10px 14px;border-radius:10px}
+.links a small{display:block;font-weight:400;color:var(--mute)}
+.links a:hover{background:var(--accent);color:var(--on)}
+.links a:hover small{color:var(--on)}
+.box{background:var(--card);border:2px solid var(--line);border-left:6px solid var(--accent);border-radius:10px;padding:14px 16px;margin:12px 0}
+.box ul{margin:6px 0 0;padding-left:1.2rem}
+.steps{counter-reset:s;padding:0;list-style:none}
+.steps li{counter-increment:s;background:var(--card);border:2px solid var(--line);border-radius:10px;padding:12px 14px 12px 52px;margin:8px 0;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:12px;top:10px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--on);font-weight:800;display:grid;place-items:center}
+footer{color:var(--mute);font-size:.9rem;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<main>
+<h1>Start your <span>IT journey</span></h1>
+<p class="lead">IT is the people who build, fix, protect and make sense of the technology everyone uses. Find a path that fits you, then take the first step today.</p>
+<nav class="chips" aria-label="Sections">
+<a href="#paths">Careers</a><a href="#start">Start learning</a><a href="#safe">Stay safe</a><a href="#next">Next steps</a>
+</nav>
+
+<h2 id="paths">Pick a path</h2>
+<p class="sec-note">Tap a career to see what it is, who it suits and where to start.</p>
+
+<details><summary><span>Software developer<small>Games, apps and websites</small></span></summary><div class="body">
+<h3>What you do</h3><p>Write the code behind apps, websites and games, and fix it when it breaks.</p>
+<h3>You might like it if</h3><p>You enjoy building things, solving puzzles and seeing your idea work on a screen.</p>
+<h3>Helpful subjects</h3><p>Maths, Information Technology, Computer Applications Technology.</p>
+<h3>Start here</h3><div class="links">
+<a href="https://scratch.mit.edu" target="_blank" rel="noopener noreferrer">Scratch<small>Make games and stories with blocks. No experience needed.</small></a>
+<a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer">freeCodeCamp<small>Free coding lessons for websites and programming.</small></a>
+<a href="https://cs50.harvard.edu/x" target="_blank" rel="noopener noreferrer">Harvard CS50<small>A free, famous intro to computer science. Harder, great for older learners.</small></a>
+</div></div></details>
+
+<details><summary><span>Cybersecurity<small>Protect people and systems</small></span></summary><div class="body">
+<h3>What you do</h3><p>Stop attackers, find weak spots, and help people avoid scams. Ethical hackers are paid to find problems before criminals do.</p>
+<h3>You might like it if</h3><p>You like puzzles, spotting what’s suspicious and asking “what could go wrong?”</p>
+<h3>Helpful subjects</h3><p>Maths, Information Technology, English (clear explaining matters a lot).</p>
+<h3>Start here</h3><div class="links">
+<a href="https://tryhackme.com" target="_blank" rel="noopener noreferrer">TryHackMe<small>Beginner-friendly, legal hacking practice in your browser.</small></a>
+<a href="https://www.netacad.com" target="_blank" rel="noopener noreferrer">Cisco Networking Academy<small>Look for the free Introduction to Cybersecurity course.</small></a>
+</div></div></details>
+
+<details><summary><span>IT support<small>Fix problems and help people</small></span></summary><div class="body">
+<h3>What you do</h3><p>Fix computers, phones and accounts, and explain things to people in plain language. It’s the most common first job in IT.</p>
+<h3>You might like it if</h3><p>You like fixing things and helping people who are stuck.</p>
+<h3>Helpful subjects</h3><p>Information Technology, English, Computer Applications Technology.</p>
+<h3>Start here</h3><div class="links">
+<a href="https://www.coursera.org/professional-certificates/google-it-support" target="_blank" rel="noopener noreferrer">Google IT Support Certificate<small>You can learn for free. The certificate itself may cost money.</small></a>
+<a href="https://www.youtube.com/results?search_query=IT+support+for+beginners" target="_blank" rel="noopener noreferrer">YouTube search: IT support for beginners<small>Free videos to try things out first.</small></a>
+</div></div></details>
+
+<details><summary><span>Networking<small>Keep everything connected</small></span></summary><div class="body">
+<h3>What you do</h3><p>Build and look after the networks, Wi-Fi and cables that connect schools, companies and cities.</p>
+<h3>You might like it if</h3><p>You’re curious how a message gets from your phone to the other side of the world.</p>
+<h3>Helpful subjects</h3><p>Maths, Information Technology, Physical Sciences.</p>
+<h3>Start here</h3><div class="links">
+<a href="https://www.netacad.com" target="_blank" rel="noopener noreferrer">Cisco Networking Academy<small>Free intro courses on networking and getting started with Packet Tracer.</small></a>
+</div></div></details>
+
+<details><summary><span>Data analyst<small>Turn numbers into answers</small></span></summary><div class="body">
+<h3>What you do</h3><p>Collect data, find patterns and explain what they mean, from sports stats to hospital waiting times.</p>
+<h3>You might like it if</h3><p>You enjoy numbers, charts and finding out why something is happening.</p>
+<h3>Helpful subjects</h3><p>Mathematics (not Maths Literacy for some university routes, so check), Information Technology.</p>
+<h3>Start here</h3><div class="links">
+<a href="https://www.kaggle.com/learn" target="_blank" rel="noopener noreferrer">Kaggle Learn<small>Short free lessons in Python, data and charts.</small></a>
+<a href="https://www.khanacademy.org" target="_blank" rel="noopener noreferrer">Khan Academy<small>Free maths and statistics, from basics to advanced.</small></a>
+</div></div></details>
+
+<details><summary><span>UX/UI designer<small>Make tech easy and good-looking</small></span></summary><div class="body">
+<h3>What you do</h3><p>Design how apps and websites look and feel so people can use them without getting confused.</p>
+<h3>You might like it if</h3><p>You like art, design and noticing when something is annoying to use.</p>
+<h3>Helpful subjects</h3><p>Visual Arts, Information Technology, English.</p>
+<h3>Start here</h3><div class="links">
+<a href="https://www.figma.com" target="_blank" rel="noopener noreferrer">Figma<small>Free design tool. Try redesigning an app you use.</small></a>
+<a href="https://www.coursera.org/professional-certificates/google-ux-design" target="_blank" rel="noopener noreferrer">Google UX Design Certificate<small>You can learn for free. The certificate itself may cost money.</small></a>
+</div></div></details>
+
+<details><summary><span>Game developer<small>Build the worlds people play in</small></span></summary><div class="body">
+<h3>What you do</h3><p>Combine code, art and sound to make games. Many studios are small teams, so you learn many skills.</p>
+<h3>You might like it if</h3><p>You love games and want to know how they’re made.</p>
+<h3>Helpful subjects</h3><p>Maths, Information Technology, Visual Arts.</p>
+<h3>Start here</h3><div class="links">
+<a href="https://scratch.mit.edu" target="_blank" rel="noopener noreferrer">Scratch<small>Make your first game in an afternoon.</small></a>
+<a href="https://learn.unity.com" target="_blank" rel="noopener noreferrer">Unity Learn<small>Free tutorials for a popular game engine.</small></a>
+<a href="https://godotengine.org" target="_blank" rel="noopener noreferrer">Godot<small>A free, open-source game engine.</small></a>
+</div></div></details>
+
+<h2 id="start">Not sure yet? Start here</h2>
+<p class="sec-note">Try one thing for 30 minutes. You’ll learn more about what you like than from thinking about it.</p>
+<div class="links">
+<a href="https://scratch.mit.edu" target="_blank" rel="noopener noreferrer">Build something: Scratch<small>The easiest place to begin.</small></a>
+<a href="https://tryhackme.com" target="_blank" rel="noopener noreferrer">Break something (legally): TryHackMe<small>Safe puzzles that teach how hackers think.</small></a>
+<a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer">Learn to code: freeCodeCamp<small>Step-by-step, free, at your own pace.</small></a>
+</div>
+
+<h2 id="safe">Stay safe online while you learn</h2>
+<div class="box"><strong>Before you make an account:</strong>
+<ul>
+<li>Some sites have an age limit, often 13 or older. Ask a parent or teacher first.</li>
+<li>Use a strong, unique password for each site. Three or four random words works well.</li>
+<li>Never share your real password, ID number or bank details with anyone.</li>
+<li>If a message says “act now or lose your account,” it’s probably a scam.</li>
+</ul></div>
+<div class="box"><strong>Free vs paid:</strong> Most learning on this page is free. Some certificates cost money. You never need to pay to start.</div>
+
+<h2 id="next">Your next steps</h2>
+<ol class="steps">
+<li><strong>Today:</strong> Open one link above and try it for 30 minutes.</li>
+<li><strong>This week:</strong> Talk to a teacher or parent about what you tried.</li>
+<li><strong>This month:</strong> Pick the path you enjoyed most and do one more lesson.</li>
+<li><strong>This year:</strong> Check which school subjects and study routes lead to that career.</li>
+</ol>
+<p>Questions? Come and ask at the IT table.</p>
+
+<footer>External sites belong to their owners and can change. Check each one before you sign up.</footer>
+</main>
+</body>
+</html>
